@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Onmouse</title>
+	<style>
+		.hover{
+			height: 200px;
+			width: 200px;
+			background: cadetblue;
+		}
+		/*		
+		.hover:hover{
+			background: gold;
+		}*/
+	</style>
+</head>
+<body>
+
+	<div class="hover"></div>
+
+	<script>
+
+		var hover = document.getElementsByClassName('hover');
+			console.log( hover );
+
+		hover[0].onmouseover = function(){
+			//onmouseover : quand la souris passe dans un élément
+
+			//THIS fait référence ici à l'élément sur lequel on agit (onmouseover) donc la div avec la calsse "hover"
+				//hover[0].style.backgroundColor = "tomato";
+			this.style.backgroundColor = "tomato";
+		}
+		hover[0].onmouseout = function(){
+			//onmouseout : quand la souris sort de l'élément
+
+			this.style.backgroundColor = 'cadetblue';
+		}
+
+			// hover[0].addEventListener('mouseout' , function(){
+
+			// 	this.style.backgroundColor = 'cadetblue';
+			// } );
+
+	</script>
+</body>
+</html>
