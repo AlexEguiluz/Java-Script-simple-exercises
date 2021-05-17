@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercice input</title>
+</head>
+<body>
+	<form method="">
+		<label for="pseudo">Pseudo</label><br>
+		<input type="text" name="pseudo" id="pseudo"><br><br>
+		<input type="submit" name="">
+	</form>
+
+	<script>
+		//EXERCICE : faites en sorte d'afficher une bordure rouge lorsque vous sélectionné un 'input' et faire l'inverse lorsque vous quittez l'input.	
+
+		let pseudo = document.getElementById('pseudo');
+			console.log( pseudo );
+
+		pseudo.onfocus = function(){
+		//onfocus : lorsque l'on sélectionne un input
+
+			this.style.border = '5px solid red';
+		}
+		pseudo.onblur = function(){
+		//onblur : lorsque l'on quitte un input
+
+			this.style.border = "2px solid green";
+		}
+
+	</script>
+</body>
+</html>
