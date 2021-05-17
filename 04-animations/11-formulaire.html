@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Formulaire</title>
+</head>
+<body>
+
+	<form method="post">
+		<label for="pseudo">Pseudo</label><br>
+		<input type="" name="pseudo" id="pseudo" placeholder="Votre pseudo"><br><br>
+
+		<label for="password">Password</label><br>
+		<input type="" name="password" id="password" placeholder="Votre mot de passe"><br><br>
+
+		<input type="submit" name="" onclick="result()">
+		<!-- Ici, on met du JS dans le HTML et au "click" sur le bouton, on déclenche la fonction result() -->
+	</form>
+
+	<script>
+
+		function result(){
+
+			if( pseudo.value.length < 5 || pseudo.value.length > 15 ){ //SI la taille de la valeur de la saisie de l'utilisateur est inférieure à 5 ou supérieure à 15, alors on affiche une alert
+
+				alert('Le pseudo doit contenir entre 5 et 15 caractères !');
+			}
+			else if( password.value.length < 8 || password.value.length > 12 ){ //SI la taille du mdp est inférieure a 8 ou supérieure à 12, alors on affiche une alerte
+
+				alert('Le mdp doit contenir entre 8 et 12 caractères !');
+			}
+			else{ //SINON, c'est que les tailles des pseudo et mdp sont correctes, on affiche une alerte avec les infos 
+
+				alert('Pseudo renseigné : '+ pseudo.value + '\n' + 'Password renseigné : '+ password.value );	
+			}
+		}
+
+	</script>
+
+</body>
+</html>
