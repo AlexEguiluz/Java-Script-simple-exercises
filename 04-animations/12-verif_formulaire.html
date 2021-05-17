@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Verif formulaire</title>
+</head>
+<body>
+
+	<form method="post">
+		<label for="prenom">Prenom *</label><br>
+		<input type="text" name="" id='prenom' placeholder="Votre prénom"><br>
+		<span id="errorPrenom" style="color:red;"></span><br><br>
+
+		<label for="nom">Nom *</label><br>
+		<input type="text" name="" id='nom' placeholder="Votre nom"><br>
+		<span id="errorNom" style="color:red;"></span><br><br>
+
+		<input type="submit" name="">
+	</form>
+
+	<script>
+
+		function validateForm(){
+
+			//récupération de la value des inputs (nom et prenom)
+			let prenom = document.getElementById('prenom').value;
+				console.log( prenom );
+			let nom = document.getElementById('nom').value;
+				console.log( nom );
+
+			//récupération des <span> (pour afficher les msg d'erreur)
+			let errorPrenom = document.getElementById('errorPrenom');
+			let errorNom = document.getElementById('errorNom');
+
+			if( prenom == '' && nom == '' ){ //SI la value des inputs 'nom' et prénom' sont vides, on affiche des messages d'erreur dans les 'span' prévus à cet effet
+
+				errorPrenom.innerHTML = "Veuillez renseigner votre prénom";
+				errorNom.innerHTML = "Veuillez renseigner votre nom";
+				return false;
+			}
+			else if( prenom == ''){ //SI la value de l'input 'prenom' est vide, on affiche un msg d'erreur dans le 'span' prévu à cet effet
+
+				errorPrenom.innerHTML = "Veuillez renseigner votre prénom";
+				return false;
+			}
+			else if( nom == '' ){ //SI la value de l'input 'nom' est vide, on affiche un msg d'erreur dans le 'span' prévu à cet effet
+
+				errorNom.innerHTML = "Veuillez renseigner votre nom";
+				return false; 
+			}
+			else{ //SINON, c'est que tout a été bien remplis, on affiche une alert()
+
+				alert("Vos saisies ont bien été enregistrées.");
+				return true;
+			}
+		}
+		//Ici, lorsque l'on clique sur le bouton 'submit' du formulaire, on fait appel à la fonction validateForm
+		document.getElementsByTagName('form')[0].onsubmit = validateForm;
+
+	</script>
+
+</body>
+</html>
