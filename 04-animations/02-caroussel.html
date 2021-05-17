@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Caroussel</title>
+	<style>
+		img{width:400px;}
+	</style>
+</head>
+<body>
+
+	<img src="img/1.jpg" alt="image" title="titre de l'image" id="caroussel">
+
+	<script>
+		
+		//récupération de l'image :
+		let image = document.getElementById("caroussel");
+			console.log( image );
+
+		image.onclick = function(){
+
+			attribut = image.getAttribute('src');
+			//getAttribute('') : permet de récupérer un attribut précisé en argument de la fonction (ici, 'src')
+				console.log( attribut ); // => "img/1.jpg"
+
+			switch( attribut ){
+
+				case 'img/1.jpg':
+					image.src = 'img/2.jpg';
+				break;
+
+				case 'img/2.jpg':
+					image.src = 'img/3.jpg';
+				break;
+
+				case 'img/3.jpg':
+					image.src = 'img/4.jpg';
+				break;
+
+				case 'img/4.jpg':
+					image.src = 'img/1.jpg';
+				break;
+			}
+		}
+
+	</script>
+
+</body>
+</html>
