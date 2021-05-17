@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Checkbox</title>
+</head>
+<body>
+	<form method="">
+		<label for="condition">J'accepte les conditions générales :</label><br>
+		<input type="checkbox" name="" id="condition" class="condition"><br>
+
+		<span id="error" style="color:red;"></span><br><br>
+
+		<input type="submit" name="" value="Accepter" id="sub">
+	</form>
+
+	<script>
+
+		//EXERCICE : faire en sorte que lorsque l'on valide le formulaire, SI on a "coché" la chexbox des conditions générales, on affiche une alert('ok') SINON, on affiche un message d'erreur DANS le span prévu à cet effet.
+			//Attention de bien faire en sorte de voir le message !!
+
+		 let btn = document.getElementsByClassName('condition');
+		  	console.log( btn );
+
+		let bouton = document.getElementById('condition');
+			console.log( bouton );
+
+		// let span = document.getElementsByTagName('span');
+		//  	console.log( span );
+
+		let error = document.getElementById('error');
+			console.log( error );
+
+		function validateCG(){
+
+			if( bouton.checked == false ){ //SI l'input N'EST PAS coché
+
+				error.innerHTML = 'Veuillez accepter les conditions générales.';
+				return false;
+			}
+			else{
+				alert('OK !');
+				return true;
+			}
+		}
+
+		//on déclenche la fonction lrsoque l'on click sue le bouton 'submit' avec l'#sub
+		sub.onclick = validateCG;
+
+	</script>
+</body>
+</html>
