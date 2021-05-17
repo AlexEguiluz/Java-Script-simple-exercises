@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>setInterval</title>
+	<style>
+		#haut{
+			background: gold;
+			border:2px solid;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="haut" ></div>
+
+	<script>
+		
+		let hauteur = 0;
+
+		function f(){
+
+			hauteur += 5; //hauteur = hauteur + 5
+
+			document.getElementById('haut').setAttribute('style', 'height: '+ hauteur +'px' );
+			//setAttribut( arg1, arg2 ) : permet d'ajout erun attribut à un élément
+				//arg1 : le nom de l'attribut (ici, 'style')
+				//arg2 : la valeur de l'attribut
+				//console.log( hauteur );
+
+			document.getElementById('haut').style.transition = 'height ease-out .5s';
+
+			if( hauteur == 100 ){ //SI la valeur de la variable hauteur est égal à 100
+
+				clearInterval( timer ); //clearInterval() : permet de stopper le setInterval()
+			}
+		}
+
+		let timer = window.setInterval( 'f()', 200 );
+		//setInterval( arg1, arg2 ) : permet de rappeler une fonction plusieurs fois
+			//arg1 : nom de la fonction à exécuter
+			//arg2 : représente le délai entre chaque appel de la fonction 
+
+	</script>
+</body>
+</html>
