@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercice majorite</title>
+</head>
+<body>
+	<form method="" id="majeur">
+		<label for="age">Votre Age :</label><br>
+		<input type="text" name="" id="age"><br>
+
+		<div id="errorAge" style="color:red; display:none;">Vous devez avoir au moins 18 ans pour continuer</div><br>
+
+		<input type="submit" name="" id="submit" class="ok">
+	</form>
+
+	<script>
+		/*EXERCICE : 
+		Dans un formulaire SIMPLE, en utilisant l'évènement 'change' de l'input où on précise l'age
+		Si l'utilisateur est majeur, on lance une 'alert(vous etes majeur)' et on active le bouton 'submit'
+		SINON on lance une 'alert(t'es mineur)' ET on affiche un message dans la div prévue à cet effet ET on désactive le bouton submit (disabled)
+		*/
+
+		let age = document.getElementById('age');
+			console.log( age );
+
+		let error = document.getElementById('errorAge');
+			console.log( error );
+
+		let btn = document.getElementById('submit');
+			console.log( btn );
+
+		let majorite = 18;
+
+		// age.addEventListener('change', function(){
+
+		// 	if( age.value >= majorite ){ //SI l'internaute à renseigner un age supérieur à 18 
+
+		// 		alert("T'es majeur !");
+		// 		error.style.display = 'none';
+		// 		btn.disabled = false; //Fait en sorte de rendre le bouton cliquable
+		// 	}
+		// 	else{ //SINON, l'internaute a renseigner un age inférieur à 18
+
+		// 		alert("T'es mineur !");
+		// 		error.style.display = 'block';
+		// 		btn.disabled = true; //empèche le bouton d'etre cliquable
+		// 	}	
+		// } )
+
+		age.onchange = function(){ //La fonction sera exécutée lorsque l'on modifie la valeur de l'input et que l'on input cet input.
+
+			console.log( age.value );
+
+			if( age.value >= majorite ){ //SI l'internaute à renseigner un age supérieur à 18 
+
+				alert("T'es majeur !");
+				error.style.display = 'none';
+				btn.disabled = false; //Fait en sorte de rendre le bouton cliquable
+			}
+			else{ //SINON, l'internaute a renseigner un age inférieur à 18
+
+				alert("T'es mineur !");
+				error.style.display = 'block';
+				btn.disabled = true; //empèche le bouton d'etre cliquable
+			}
+		}
+		
+	</script>
+</body>
+</html>
