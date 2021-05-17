@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Formulaire</title>
+</head>
+<body>
+
+	<form method="post">
+		<input type="text" name="" placeholder="Saisir un code couleur" maxlength="6" id="fond">
+		<input type="submit" name="">
+	</form>
+
+	<script>
+
+		//récupération du formulaire (donc de la balise <form>)
+		let form = document.getElementsByTagName('form');
+			console.log( form );
+
+		//récupération de l'input (le champ a remplir) :
+		let fond = document.getElementById('fond');
+			console.log( fond );
+		
+		let regex = /^[0-9a-fA-F]{6}$/; //expression régulière (regex)
+			console.log( regex );
+
+		form[0].onsubmit = function( event ){ //lorsque je valide un formulaire, le apropriété 'onsubmit' s'exécute sur le formulaire !! (<form>)
+
+			event.preventDefault(); //permet de supprimer le comportement par défaut qui est ici, de recharger la page lorsque l'on valide un formulaire
+
+			//Récupération de la valeur saisie par l'utilisateur sur l'input (fond) lors de la validation du formulaire :
+			let codeCouleur = fond.value;
+				console.log( codeCouleur );
+
+			if( regex.test( codeCouleur ) ){
+				//test() : verifie si il y a une correspondance entre le 'codeCouleur' et une expression rationnelle (regex).
+					//elle retournera 'true' en cas de succès et 'false' si ca ne correspond pas
+
+				document.body.setAttribute('style', 'background:#'+ codeCouleur +';');
+				//Ici, je récupère mon <body> et je lui ajoute un attribut : style="background: #..."
+
+			}
+			else{ //Sinon, c'est que l'utilisateur a renseigner un code couleur erroné et donc qu'il ne respecte pas le "regex"
+
+				alert("Veuillez renseigner une expression correcte.");
+			}
+		}
+
+	</script>
+
+</body>
+</html>
