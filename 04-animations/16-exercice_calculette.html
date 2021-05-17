@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculatrice</title>
+</head>
+<body>
+
+	<form method="">
+		<label for="saisie1">Saisie 1</label>
+		<input type="text" name="" id="saisie1">
+
+		<label for="operateur">Opérateur</label>
+		<select id="operateur">
+			<option value="+"> + </option>
+			<option value="-"> - </option>
+			<option value="/"> / </option>
+			<option value="*"> * </option>
+		</select>
+
+		<label for="saisie2">Saisie 2</label>
+		<input type="text" name="" id="saisie2">
+
+		<input type="submit" name="" id="resultat">
+	</form>
+
+	<script>
+		//Faites en sortes que lorsque vous cliquez sur le bouton submit, on affiche le résultat (dans une alerte) de l'opération.
+		//Où la valeur de l'opérateur dépendra de l'opération a effectuer avec les valeurs des input 1 et input 2 
+
+		function calcul(){
+
+			//Je récupère les saisies de l'utilisateur 
+			let saisie1 = parseFloat( document.getElementById('saisie1').value  );
+				//alert( saisie1 );
+			let saisie2 = parseFloat( document.getElementById('saisie2').value );
+				//alert( saisie2 );
+
+				//parseFloat() : permet de transformer une chaine en un entier flottant
+
+			//Je récupère le symbole choisi de l'opération
+			let operateur = document.getElementById('operateur').value;
+				//alert( operateur );
+
+			if( operateur == '+' ){
+
+				var result = saisie1 +  saisie2;
+			}
+			else if( operateur == '-'){
+
+				var result = saisie1 - saisie2;
+			}
+			else if( operateur == '*'){
+
+				var result = saisie1 * saisie2;
+			}
+			else if( operateur == '/'){
+
+				var result = saisie1 / saisie2;
+			}
+
+			alert( result );
+		}
+
+		//Lorsque l'on clique sur l'input (avec l'#restulat), j'exécute la fonction calcul()
+		resultat.onclick = calcul;
+
+	</script>
+</body>
+</html>
