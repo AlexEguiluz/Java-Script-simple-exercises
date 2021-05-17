@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Event keydown</title>
+	<style>
+		#move{
+			border: 2px solid;
+			background: gold;
+			width: 100px;
+			height: 100px;
+			padding: 5px;
+
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="move">Appuyer sur les flèches directionnelles du clavier</div>
+
+	<script>
+		function clavier(event){ //event représente l'évènement "tapper sur le clavier"
+
+			window.event;
+				//console.log( event );
+
+			if( event.key == "ArrowUp" ){ //fleche du haut
+
+				console.log('fleche du haut');
+
+				//le 'move' ci-dessous permet de récupérer l'élément naturellement grâce à son id="move"
+					//let move = document.getElementById('move');
+				move.style.top = ( move.offsetTop - 10 ) + 'px';
+			}
+			else if( event.key == "ArrowDown" ){ //fleche du bas
+
+				console.log('fleche du bas');
+				move.style.top = ( move.offsetTop ) + 'px';
+			}
+			else if( event.key == "ArrowLeft" ){ //fleche de gauche
+
+				console.log('fleche du gauche');
+				move.style.left = ( move.offsetLeft - 10 ) + 'px';
+			}
+			else if( event.key == "ArrowRight" ){ //fleche de droite
+
+				console.log('fleche du droite');
+				move.style.left = ( move.offsetLeft ) + 'px';
+			}
+		}
+
+		document.onkeydown = clavier; //SI on presse une touche du clavier, on exécute la fonction 'clavier'
+
+	</script>
+
+</body>
+</html>
